@@ -21,7 +21,7 @@ const RestaurantSchema = new mongoose.Schema(
         cuisine: [String],
         restaurantTiming: String,
         contactNumber: Number,
-        website: Number,
+        website: String,
         popularDishes: [String],
         averageCost: Number,
         amenities: [String],
