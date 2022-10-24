@@ -10,6 +10,7 @@ import session from 'express-session';
 
 import ConnectDB from './Database/connection';
 import Auth from './API/Auth';
+import Restaurant from './API/Restaurant'
 import googleConfig from './config/google.config';
 
 const app = express();
@@ -31,6 +32,7 @@ app.use(passport.session());
 googleConfig(passport);
 
 app.use("/auth", Auth);
+app.use("/restaurant", Restaurant);
 
 app.get("/", (request, response) => {
     return response.json({ message: "Setup successfully" })
