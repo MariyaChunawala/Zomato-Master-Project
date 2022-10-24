@@ -9,9 +9,14 @@ import passport from 'passport';
 import session from 'express-session';
 
 import ConnectDB from './Database/connection';
+
+// Add Microservices Routes
 import Auth from './API/Auth';
 import Restaurant from './API/Restaurant';
 import Food from "./API/Food";
+import Menu from "./API/Menu";
+
+// Config Files
 import googleConfig from './config/google.config';
 
 const app = express();
@@ -35,6 +40,7 @@ googleConfig(passport);
 app.use("/auth", Auth);
 app.use("/restaurant", Restaurant);
 app.use("/food", Food);
+app.use("/menu", Menu);
 
 app.get("/", (request, response) => {
     return response.json({ message: "Setup successfully" })

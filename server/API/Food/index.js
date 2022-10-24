@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { FoodModel, RestaurantModel } from '../../Database/allModels';
+import { FoodModel } from '../../Database/allModels';
 
 const Router = express.Router();
 /* 
