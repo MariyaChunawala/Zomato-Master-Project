@@ -15,6 +15,7 @@ import Auth from './API/Auth';
 import Restaurant from './API/Restaurant';
 import Food from "./API/Food";
 import Menu from "./API/Menu";
+import Image from "./API/Image"
 
 // Config Files
 import googleConfig from './config/google.config';
@@ -41,6 +42,7 @@ app.use("/auth", Auth);
 app.use("/restaurant", Restaurant);
 app.use("/food", Food);
 app.use("/menu", Menu);
+app.use("/image", Image);
 
 app.get("/", (request, response) => {
     return response.json({ message: "Setup successfully" })
