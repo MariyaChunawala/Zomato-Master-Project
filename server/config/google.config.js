@@ -25,7 +25,7 @@ export default (passport) => {
                         done(null, { user, token });
                     } else {
                         const user = await UserModel.create(newUser);
-                        const token = user.generateToken();
+                        const token = user.generateTokens();
                         done(null, { user, token });
                     }
                 } catch (error) {
