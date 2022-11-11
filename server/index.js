@@ -18,6 +18,7 @@ import Menu from "./API/Menu";
 import Image from "./API/Image";
 import Order from "./API/Orders";
 import Reviews from "./API/Reviews";
+import User from "./API/User";
 
 // Config Files
 import googleConfig from './config/google.config';
@@ -47,6 +48,7 @@ app.use("/menu", Menu);
 app.use("/image", Image);
 app.use("/order", Order);
 app.use("/reviews", Reviews);
+app.use("/user", User);
 
 app.get("/", (request, response) => {
     return response.json({ message: "Setup successfully" })
