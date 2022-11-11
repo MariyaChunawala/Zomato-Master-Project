@@ -2,6 +2,8 @@ import express from 'express';
 
 import { ImageModel, MenuModel } from '../../Database/allModels';
 
+import { ValidateRestaurantId } from '../../validation/food';
+
 const Router = express.Router();
 /* 
     Route: /list
@@ -12,6 +14,7 @@ const Router = express.Router();
 */
 Router.get("/list/:_id", async (request, response) => {
     try {
+        await ValidateRestaurantId(request.params);
         const { _id } = request.params;
         const menus = await MenuModel.findOne({ _id });
         return response.status(200).json({ menus });
@@ -29,6 +32,7 @@ Router.get("/list/:_id", async (request, response) => {
 */
 Router.get("/image/:_id", async (request, response) => {
     try {
+        await ValidateRestaurantId(request.params);
         const { _id } = request.params;
         const menus = await ImageModel.findOne({ _id });
         return response.status(200).json({ menus });
