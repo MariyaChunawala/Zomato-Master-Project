@@ -27,7 +27,9 @@ const ReviewSchema = new mongoose.Schema(
                 type: mongoose.Types.ObjectId,
                 ref: "Images"
             }
-        ]
+        ],
+        isFoodReview: Boolean,
+        isRestaurantReview: Boolean
     },
     {
         timestamps: true
