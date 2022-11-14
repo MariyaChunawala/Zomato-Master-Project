@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport';
 
 import { OrderModel } from '../../Database/allModels';
 
@@ -11,7 +12,7 @@ const Router = express.Router();
     Access: Public
     Method: GET
 */
-Router.get("/:_id", async (request, response) => {
+Router.get("/:_id", passport.authenticate('jwt', { session: false }), async (request, response) => {
     try {
         const { _id } = request.params;
         const getAllOrders = await OrderModel.findOne({ user: _id });

@@ -22,6 +22,7 @@ import User from "./API/User";
 
 // Config Files
 import googleConfig from './config/google.config';
+import routeConfig from './config/route.config';
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 googleConfig(passport);
+routeConfig(passport);
 
 app.use("/auth", Auth);
 app.use("/restaurant", Restaurant);
