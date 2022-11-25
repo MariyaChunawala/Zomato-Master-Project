@@ -1,27 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { RiShoppingBag3Line } from 'react-icons/ri';
 import { BiDrink } from 'react-icons/bi';
 import { IoNutritionOutline, IoFastFoodOutline } from 'react-icons/io5'
 
 const MobileTabs = () => {
+    const [allTypes, setAllTypes] = useState([
+        {
+            id: "delivery",
+            icon: <RiShoppingBag3Line />,
+            name: 'Delivery',
+        },
+        {
+            id: "diningout",
+            icon: <IoFastFoodOutline />,
+            name: 'Dining Out',
+        },
+        {
+            id: "nightlife",
+            icon: <BiDrink />,
+            name: 'Night Life',
+        },
+        {
+            id: "nutrition",
+            icon: <IoNutritionOutline />,
+            name: 'Nutrition',
+        },
+    ])
+    const { type } = useParams();
     return <>
-        <div className='lg:hidden bg-white shadow-lg p-3 fixed bottom-0 z-10 w-full flex items-center justify-between border text-gray-500 md:justify-evenly'>
-            <div className='w-full flex flex-col items-center text-2xl font-medium hover:text-gray-800'>
-                <RiShoppingBag3Line />
-                <h5 className='text-sm'>Delivery</h5>
-            </div>
-            <div className='w-full flex flex-col items-center text-2xl font-medium hover:text-gray-800 '>
-                <IoFastFoodOutline />
-                <h5 className='text-sm'>Dinning Out</h5>
-            </div>
-            <div className='w-full flex flex-col items-center text-2xl font-medium hover:text-gray-800'>
-                <BiDrink />
-                <h5 className='text-sm'>Night Life</h5>
-            </div>
-            <div className='w-full flex flex-col items-center text-2xl font-medium hover:text-gray-800'>
-                <IoNutritionOutline />
-                <h5 className='text-sm'>Nutrition</h5>
-            </div>
+        <div className="lg:hidden bg-white shadow-lg p-3 fixed bottom-0 z-10 w-full flex items-center justify-between md:justify-evenly text-gray-500 border">
+            {allTypes.map((items) => (
+
+                <Link to={`/${items.id}`}>
+                    <div className={type === items.id ?
+                        'relative w-full flex flex-col items-center text-xl text-zomato-500 '
+                        : 'w-full flex flex-col items-center text-xl'}>
+                        {items.icon}
+                        <h5 className='text-sm'>{items.name}</h5>
+                        <div className={type === items.id ? "absolute -top-3 w-full border-t-2 border-zomato-500" : undefined} />
+                    </div>
+                </Link>
+            ))}
         </div>
     </>
 }
