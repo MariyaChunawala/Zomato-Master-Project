@@ -21,8 +21,7 @@ const MobileTabs = () => {
     return <>
         <div className="lg:hidden bg-white shadow-lg p-3 fixed bottom-0 z-10 w-full flex items-center justify-evenly md:justify-evenly text-gray-500 border">
             {allTypes.map((items) => (
-                < Link to={`/${items.id}`}
-                    onClick={() => { setType(items.id) }}>
+                < Link to={`/${items.id}`} onClick={() => { setType(items.id) }}>
                     <div className={classnames('w-full flex flex-col items-center text-xl border ', {
                         'relative text-zomato-500': selectedType === items.id
                     })}>
@@ -53,8 +52,9 @@ const LargeTabs = () => {
             activeColor: "blue"
         },
     ];
+    console.log(allTypes);
     return <>
-        <div className='hidden lg:flex gap-14 w-3/4 mx-auto'>
+        <div className='hidden lg:flex gap-14 w-3/4 mx-auto my-8'>
             {allTypes.map((items) => (
                 <Link to={`/${items.id}`} onClick={() => { setType(items.id) }}>
                     <div className={classnames('flex items-center gap-3 pb-2 transition duration-700 ease-in-out', {
