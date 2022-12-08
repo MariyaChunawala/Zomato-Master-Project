@@ -1,4 +1,7 @@
 import React from 'react';
+
+// Components
+import RestaurantCard from '../RestaurantCard';
 import Brand from './Brand';
 import DeliveryCarousal from './DeliveryCarousal';
 
@@ -7,6 +10,7 @@ const Delivery = () => {
         <>
             <DeliveryCarousal />
             <Brand />
+            <RestaurantCard />
         </>
     )
 }
